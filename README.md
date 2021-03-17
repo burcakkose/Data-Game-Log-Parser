@@ -1,1 +1,1 @@
-# Data-Game-Log-Parser
+# Dota-Game-Log-Parser

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import log.parser.service.MatchService;
 
 @RestController
-@RequestMapping("api/match")
+@RequestMapping("api/matches")
 public class MatchController {
 
 	private final MatchService matchService;
@@ -24,8 +24,8 @@ public class MatchController {
 	}
 	
 	@PostMapping(consumes="text/plain")
-	public ResponseEntity<Long> ingestMatch(@RequestBody @NotNull @NotBlank String payload) {
-		final Long matchId = matchService.ingestMatch(payload);
+	public ResponseEntity<String> ingestMatch(@RequestBody @NotNull @NotBlank String payload) {
+		final String matchId = matchService.upload(payload);
         return ResponseEntity.ok(matchId);
 	}
 }

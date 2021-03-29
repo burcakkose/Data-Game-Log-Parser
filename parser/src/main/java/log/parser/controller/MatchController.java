@@ -17,15 +17,15 @@ import log.parser.service.MatchService;
 public class MatchController {
 
 	private final MatchService matchService;
-	
+
 	@Autowired
 	public MatchController(MatchService matchService) {
 		this.matchService = matchService;
 	}
-	
+
 	@PostMapping(consumes="text/plain")
 	public ResponseEntity<String> ingestMatch(@RequestBody @NotNull @NotBlank String payload) {
 		final String matchId = matchService.upload(payload);
-        return ResponseEntity.ok(matchId);
+		return ResponseEntity.ok(matchId);
 	}
 }
